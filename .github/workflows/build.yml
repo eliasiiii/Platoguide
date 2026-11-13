@@ -11,7 +11,7 @@ jobs:
           cd "$DIR"
           for M in 0 1 2; do
             N=PlatoGuide_mode$M.dylib
-            xcrun -sdk iphoneos clang++ -arch arm64 -miphoneos-version-min=15.0 -std=c++20 -fobjc-arc -DPG_MODE=$M -dynamiclib -framework Foundation -framework UIKit -framework JavaScriptCore -install_name @rpath/$N -o $N PlatoGuide.mm
+            xcrun -sdk iphoneos clang++ -arch arm64 -miphoneos-version-min=15.0 -std=c++20 -fobjc-arc -DPG_MODE=$M -dynamiclib -framework Foundation -framework UIKit -framework CoreGraphics -framework JavaScriptCore -install_name @rpath/$N -o $N PlatoGuide.mm
           done
           ls
       - uses: actions/upload-artifact@v4
